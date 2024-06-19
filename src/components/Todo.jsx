@@ -11,11 +11,16 @@ const Todo = () => {
   const add = ()=>{
     const inputText = inputRef.current.value.trim();
     
+    if(inputRef == "") return null;
+
     const newTodo ={
       id:Date.now(),
       text:inputText,
       isComplete:flase,
     }
+
+    setTodoList((prev)=> [...prev,newTodo]);
+    inputRef.current.value = "";
   }
   return (
     <div className='bg-white place-self-center min-h-[550px] max-w-md w-11/12 flex flex-col p-7 rounded-xl'>
