@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import todo_icon from "../assets/todo_icon.png"
 import TodoItem from './TodoItem'
 
@@ -7,7 +7,8 @@ const Todo = () => {
   const inputRef = useRef();
 
   const add = ()=>{
-    const inputText = inputRef.current.value;
+    const inputText = inputRef.current.value.trim();
+    console.log(inputText)
   }
   return (
     <div className='bg-white place-self-center min-h-[550px] max-w-md w-11/12 flex flex-col p-7 rounded-xl'>
