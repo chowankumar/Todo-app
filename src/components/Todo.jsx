@@ -1,14 +1,21 @@
-import React,{useRef} from 'react'
+import React,{useRef, useState} from 'react'
 import todo_icon from "../assets/todo_icon.png"
 import TodoItem from './TodoItem'
 
 const Todo = () => {
 
+  const [todoList,setTodoList] = useState([])
+
   const inputRef = useRef();
 
   const add = ()=>{
     const inputText = inputRef.current.value.trim();
-    console.log(inputText)
+    
+    const newTodo ={
+      id:Date.now(),
+      text:inputText,
+      isComplete:flase,
+    }
   }
   return (
     <div className='bg-white place-self-center min-h-[550px] max-w-md w-11/12 flex flex-col p-7 rounded-xl'>
