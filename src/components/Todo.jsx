@@ -16,7 +16,7 @@ const Todo = () => {
     const newTodo ={
       id:Date.now(),
       text:inputText,
-      isComplete:flase,
+      isComplete:false,
     }
 
     setTodoList((prev)=> [...prev,newTodo]);
@@ -37,7 +37,9 @@ const Todo = () => {
      </div>
 
      <div>
-      <TodoItem/>
+       {todoList.map((item,index)=>{
+        return <TodoItem key={index} text={item.text}/>
+       })}
      </div>
         
     </div>
