@@ -1,4 +1,4 @@
-import React,{useRef, useState} from 'react'
+import React,{useEffect,useRef, useState} from 'react'
 import todo_icon from "../assets/todo_icon.png"
 import TodoItem from './TodoItem'
 
@@ -40,6 +40,10 @@ const toggle =(id)=>{
       })
      })
 }
+
+useEffect(()=>{
+  localStorage.setItem("todo",JSON.stringify(todoList))
+},[todoList])
   return (
     <div className='bg-white place-self-center min-h-[550px] max-w-md w-11/12 flex flex-col p-7 rounded-xl'>
 
@@ -56,7 +60,7 @@ const toggle =(id)=>{
 
      <div>
        {todoList.map((item,index)=>{
-        return <TodoItem key={index} text={item.text} id={item.id} isComplete={item.isComplete} deleteTodo={deleteTodo}/>
+        return <TodoItem key={index} text={item.text} id={item.id} isComplete={item.isComplete} deleteTodo={deleteTodo} toggle={toggle}/>
        })}
      </div>
         
