@@ -29,6 +29,17 @@ const  deleteTodo =(id)=>{
     })
 
   }
+
+const toggle =(id)=>{
+     setTodoList((prevTodos)=>{
+      return prevTodos.map((todo)=>{
+        if(todo.id === id){
+          return {...todo,isComplete:!todo.isComplete}
+        }
+        return todo;
+      })
+     })
+}
   return (
     <div className='bg-white place-self-center min-h-[550px] max-w-md w-11/12 flex flex-col p-7 rounded-xl'>
 
